@@ -43,7 +43,7 @@ article {
 	position: fixed;
 	text-align: right;
 	padding-top: 20%;
-	padding-bottom: 100%;
+	padding-bottom: 50%;
 	background-color: #23C10B;
 	background-image: linear-gradient(45deg, #30D816 25%, transparent 25%, transparent 75%, #30D816 75%, #30D816), 
 	linear-gradient(45deg, #30D816 25%, transparent 25%, transparent 75%, #30D816 75%, #30D816 );
