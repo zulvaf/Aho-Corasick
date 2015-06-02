@@ -37,7 +37,7 @@
 	
 		<aside role="complimentary" class="col span_7 animated slideInUp" style="margin-left: 35%;">
 			  
-			
+			<p style="color: #006400; font-size: 25px; font-style:bold; text-decoration: underline;"> Definisi </p> 
 			<p> String matching merupakan algoritma yang cukup sering digunakan dalam computer science. Biasanya, string matching berkaitan dengan fitur pencarian atau pencocokan dalam aplikasi. String matching merupakan algoritma yang melakukan pencarian lokasi dari sebuah atau sejumlah pattern yang terdapat pada sebuah text. Terdapat begitu banyak algoritma string matching yang sering digunakan. Salah satu algoritma string matching yang cukup simpel dan efisien untuk menemukan lokasi sejumlah kewords yang terbatas dalam sebuah text string adalah Algoritma Aho-Corasick. </p>
 
 
@@ -45,6 +45,7 @@
 
 			<p> Algoritma Aho-Corasick terdiri dari 2 bagian. Bagian pertama, seluruh keyword dikonstruksi menjadi sebuah finite state pattern matching machine. Pattern matching machine adalah sekumpulan state dimana masing-masing state direpresentasikan dengan angka. Sedangkan bagian kedua text string diimplementasikan sebagai masukan pada pattern matching machine. Machine akan memberitahu apakah ditemukan kesamaan pada keyword. Pengoperasian pada machine didasarkan pada 3 fungsi utama, yaitu goto function, failure function, dan output function. </p>
 
+			<p style="color: #006400; font-size: 25px; font-style:bold; text-decoration: underline;"> Langkah-Langkah </p> 
 			<p> Pertama-tama, perlu dibentuk pattern matching machine atau disebut juga keyword trie yang akan digunakan untuk melakukan string matching. Pattern machine merupakan representasi dari sekumpulan keyword yang ingin dicari dengan beberapa ketentuan:
 			<br> 1.	Masing-masing state/simpul direpresentasikan dengan angka yang berbeda
 			<br>2.	Masing-masing input/sisi diberi label dengan karakter pada keyword/pattern
@@ -79,15 +80,19 @@
 
 			<p> Pencarian string dimulai dari state awal yaitu state 0.  Kemudian untuk masing-masing input a karakter, telusuri transisi δ(state, a) yang digambarkan dengan garis lurus pada pattern matching, sampai fail ditemukan. Jika terjadi fail, ganti nilai state dengan f(state), kemudian kembali telusuri sampai seluruh karakter sudah habis ditelusuri. </p>
 
-			<p> Misalnya kita ingin mencari keyword yang terdapat pada kata “hishe”. Pertama–tama kita menelusuri dari state 0. Selanjutnya telusuri δ(0, h) = 1 sehingga sekarang kita berada di state 1. Dari state 1 kita berpindah ke state 6 karena δ(1, i) = 6  dan mendapatkan output “hi”. Karakter berikutnya dari input, “s” dengan state awal 6 menghasilkan state 7. Sampai tahap ini kita sudah berhasil menelusuri hingga kata “his” dan state sekarang sudah berada pada state 7.  Karena state 7 merupakan final state, maka keyword “his” dicatat sebagai keyword yang berhasil ditemukan dengan  index terakhir berada di karakter ke 3, dan index pertama berada di 3-3+1 = 1. Karena δ(7, h) menghasilkan fail, maka kita dapat memperhatikan fail function dari state 7. f(7) = 3, sehingga kita bisa langsung “melompat” ke state 3. Di state 3, kita melanjutkan menelusuri karakter berikutnya dari input string yang sebelumnya menghasilkan fail yaitu “h”. δ(3,h)=4 dan δ(4,e)=5. Pada state 5 kita sudah selesai mendapatkan L(u)=hishe yang artinya seluruh karakter pada text string sudah berhasil ditelusuri. Karena state 5 merupakan final state, maka keyword “she” ditemukan pada index terakhir berada di karakter ke 6, sehingga keyword tersebut secara spesifix dimulai pada karakter ke 6-3+1=4 pada string. Sehingga dari pencarian tersebut dapat disimpulkan bahwa keyword “his” ditemukan pada karakter ke-1 dan keyword “she” ditemukan pada karakter ke-4 pada text. Penelusuran string dari state satu ke state lainnya dengan masukan input “hishe” dapat digambarkan sebagai berikut:</p>
+			<p style="color: #006400; font-size: 25px; font-style:bold; text-decoration: underline;"> Contoh </p> 
+			<p> Agar lebih memahami mengenai Algoritma Aho-Corasick, kita ambil sebuah contoh. Misalnya kita ingin mencari keyword yang terdapat pada kata “hishe” dengan keyword dan machine seperti yang telah dibentuk di atas. Pertama–tama kita menelusuri dari state 0. Selanjutnya telusuri δ(0, h) = 1 sehingga sekarang kita berada di state 1. Dari state 1 kita berpindah ke state 6 karena δ(1, i) = 6  dan mendapatkan output “hi”. Karakter berikutnya dari input, “s” dengan state awal 6 menghasilkan state 7. Sampai tahap ini kita sudah berhasil menelusuri hingga kata “his” dan state sekarang sudah berada pada state 7.  Karena state 7 merupakan final state, maka keyword “his” dicatat sebagai keyword yang berhasil ditemukan dengan  index terakhir berada di karakter ke 3, dan index pertama berada di 3-3+1 = 1. Karena δ(7, h) menghasilkan fail, maka kita dapat memperhatikan fail function dari state 7. f(7) = 3, sehingga kita bisa langsung “melompat” ke state 3. Di state 3, kita melanjutkan menelusuri karakter berikutnya dari input string yang sebelumnya menghasilkan fail yaitu “h”. δ(3,h)=4 dan δ(4,e)=5. Pada state 5 kita sudah selesai mendapatkan L(u)=hishe yang artinya seluruh karakter pada text string sudah berhasil ditelusuri. Karena state 5 merupakan final state, maka keyword “she” ditemukan pada index terakhir berada di karakter ke 6, sehingga keyword tersebut secara spesifix dimulai pada karakter ke 6-3+1=4 pada string. Sehingga dari pencarian tersebut dapat disimpulkan bahwa keyword “his” ditemukan pada karakter ke-1 dan keyword “she” ditemukan pada karakter ke-4 pada text. Penelusuran string dari state satu ke state lainnya dengan masukan input “hishe” dapat digambarkan sebagai berikut:</p>
 
 			<p><img src="img/aho-corasick.jpg" alt="AC3" style="height:100px; width:500px"> </p>
+
+			<p style="color: #006400; font-size: 25px; font-style:bold; text-decoration: underline;"> Algoritma </p> 
 
 			<p>Algoritma dari proses string matching adalah sebagai berikut</p>
 
 			<p><img src="img/AC4.png" alt="AC4"></p>
 
-			<p>Algoritma Aho-Corasick sangat tepat diaplikasikan pada kasus dimana pencarian dilakukan untuk banyak keywords pada sebuah string yang panjang. Dengan Aho-Corasick, kita tidak perlu melakukan pencarian secara berulang-ulang, melainkan cukup melakukannya hanya dengan satu kali menelusuri pattern machine. Kompleksitas dari Aho-Corasick adalah O(n+m+z) dimana n adalah jumlah keyword, m adalah panjang string text, dan z adalah jumlah kemunculan keyword pada text. Algoritma Aho-Corasick dapat diaplikasikan dalam bioinformatics, mendeteksi plagiarism, digital forensic, dan text mining.</p>
+			<p style="color: #006400; font-size: 25px; font-style:bold; text-decoration: underline;"> Kesimpulan </p> 
+			<p>Pseudocode Aho-Corasick sangat tepat diaplikasikan pada kasus dimana pencarian dilakukan untuk banyak keywords pada sebuah string yang panjang. Dengan Aho-Corasick, kita tidak perlu melakukan pencarian secara berulang-ulang, melainkan cukup melakukannya hanya dengan satu kali menelusuri pattern machine. Kompleksitas dari Aho-Corasick adalah O(n+m+z) dimana n adalah jumlah keyword, m adalah panjang string text, dan z adalah jumlah kemunculan keyword pada text. Algoritma Aho-Corasick dapat diaplikasikan dalam bioinformatics, mendeteksi plagiarism, digital forensic, dan text mining.</p>
 
 			<p> <div style="text-align:left; font-family:'Rockwell'; line-height: 1.5em;" > Sumber :
 				<br>Aho, Alfred V.; Corasick, Margaret J. (June 1975). "Efficient string matching: An aid to bibliographic search"
